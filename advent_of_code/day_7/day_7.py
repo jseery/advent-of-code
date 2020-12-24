@@ -78,9 +78,17 @@ def main():
     pz = {r[0]: r[1] for r in map(parse_rules_pt2, utils.get_puzzle_input('test.txt').splitlines())}
     print(*pz.items(), sep='\n')
 
-    to_visit = deque(pz['shiny gold'])
+    to_visit = deque(pz['shiny gold'].items())
+    visited = []
+    print(to_visit)
     i = 0
     while (to_visit) and (i < 10):
+        v = to_visit.popleft()
+        to_visit.extend(pz[v[0]].items())
+        
+        
+        print(to_visit)
+
         
         i += 1
 
