@@ -3,6 +3,7 @@ from pathlib import Path
 import itertools
 from functools import reduce
 
+
 def find_items_sum_to_2020(filename: str, tuple_size: int):
 
     input = map(int, Path(__file__).parent.joinpath(filename).read_text().splitlines())
@@ -15,9 +16,10 @@ def find_items_sum_to_2020(filename: str, tuple_size: int):
 
     return answer
 
+
 def main():
 
-    fname = 'input.txt'
+    fname = "input.txt"
 
     find_items_sum_to_2020(fname, 2)
 

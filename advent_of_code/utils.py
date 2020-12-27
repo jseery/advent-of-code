@@ -1,6 +1,7 @@
 from pathlib import Path
 import inspect
 
+
 def get_inputs_dir():
     return Path(__file__).parent.joinpath("inputs")
 

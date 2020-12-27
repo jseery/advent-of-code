@@ -8,20 +8,18 @@ COLS = 8
 COL_PARTITIONS = [4, 2, 1]
 
 
-
 def get_puzzle_input(fname: str):
     input = Path(__file__).parent.joinpath(fname).read_text().splitlines()
     return input
-
 
 
 def find_row(seq: str) -> int:
     assert len(seq) == 7
     remaining_rows = list(range(ROWS))
     for s, p in zip(seq, ROW_PARTITIONS):
-        if s == 'F':
+        if s == "F":
             remaining_rows = remaining_rows[:p]
-        elif s == 'B':
+        elif s == "B":
             remaining_rows = remaining_rows[p:]
     assert len(remaining_rows) == 1, f"{remaining_rows=}"
     return remaining_rows[0]
@@ -31,9 +29,9 @@ def find_col(seq: str) -> int:
     assert len(seq) == 3
     remaining_cols = list(range(COLS))
     for s, p in zip(seq, COL_PARTITIONS):
-        if s == 'L':
+        if s == "L":
             remaining_cols = remaining_cols[:p]
-        elif s == 'R':
+        elif s == "R":
             remaining_cols = remaining_cols[p:]
     assert len(remaining_cols) == 1, f"{remaining_cols=}"
     return remaining_cols[0]
@@ -47,7 +45,6 @@ def find_seat_id(p: str) -> int:
     return seat_id
 
 
-
 def main():
 
     pz = get_puzzle_input("input.txt")
@@ -56,7 +53,6 @@ def main():
     taken_seat_ids.sort()
     answer_1 = max(taken_seat_ids)
     print(answer_1)
-
 
     all_seats = list(range(min(taken_seat_ids), answer_1))
 
